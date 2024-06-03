@@ -40,3 +40,4 @@ jobs:
     - name: Run tests
       working-directory: demo1
       run: ./gradlew test
+
