@@ -1,10 +1,12 @@
 name: CI
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
-      - dev
 
 jobs:
   build:
@@ -32,7 +34,9 @@ jobs:
       run: chmod +x demo1/gradlew
 
     - name: Build with Gradle
-      run: demo1/gradlew build
+      working-directory: demo1
+      run: ./gradlew build
 
     - name: Run tests
-      run: demo1/gradlew test
+      working-directory: demo1
+      run: ./gradlew test
